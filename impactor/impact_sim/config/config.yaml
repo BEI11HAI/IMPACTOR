@@ -25,60 +25,60 @@ rope:
   rope_y: 0.5               # Gets overwritten - no effect
 payload:
   name: "payload"
-  urdf_path: "src/payload_sim/config/model/payload.sdf"
+  urdf_path: "/home/stark/impactor_ws/src/IMPACTOR/impactor/impact_sim/config/model/payload.sdf"
 quadrotor:
   name: "drone_0"
   propellers:
-    rotor_1:
-      pose:
-        pos: [0.15, 0.0, 0.0]
-        rpy: [0.0, 0.0, 0.0]
-      thrust_radio: 1.58e-8
-      moment_ratio: 1.0e-10
-    rotor_2:
-      pose:
-        pos: [-0.15, 0.0, 0.0]
-        rpy: [0.0, 0.0, 0.0]
-      thrust_radio: 1.58e-8
-      moment_ratio: 1.0e-10
-    rotor_3:
-      pose:
-        pos: [0.0, 0.15, 0.0]
-        rpy: [0.0, 0.0, 0.0]
-      thrust_radio: 1.58e-8
-      moment_ratio: -1.0e-10
-    rotor_4:
-      pose:
-        pos: [0.0, -0.15, 0.0]
-        rpy: [0.0, 0.0, 0.0]
-      thrust_radio: 1.58e-8
-      moment_ratio: -1.0e-10
     # rotor_1:
     #   pose:
-    #     pos: [0.106065, 0.106065, 0.0]
+    #     pos: [0.15, 0.0, 0.0]
     #     rpy: [0.0, 0.0, 0.0]
-    #   thrust_radio: 1.0
-    #   moment_ratio: 0.0245
+    #   thrust_radio: 1.58e-8
+    #   moment_ratio: 1.0e-10
     # rotor_2:
     #   pose:
-    #     pos: [-0.106065, -0.106065, 0.0]
+    #     pos: [-0.15, 0.0, 0.0]
     #     rpy: [0.0, 0.0, 0.0]
-    #   thrust_radio: 1.0
-    #   moment_ratio: 0.0245
+    #   thrust_radio: 1.58e-8
+    #   moment_ratio: 1.0e-10
     # rotor_3:
     #   pose:
-    #     pos: [-0.106065, 0.106065, 0.0]
+    #     pos: [0.0, 0.15, 0.0]
     #     rpy: [0.0, 0.0, 0.0]
-    #   thrust_radio: 1.0
-    #   moment_ratio: -0.0245
+    #   thrust_radio: 1.58e-8
+    #   moment_ratio: -1.0e-10
     # rotor_4:
     #   pose:
-    #     pos: [0.106065, -0.106065, 0.0]
+    #     pos: [0.0, -0.15, 0.0]
     #     rpy: [0.0, 0.0, 0.0]
-    #   thrust_radio: 1.0
-    #   moment_ratio: -0.0245
+    #   thrust_radio: 1.58e-8
+    #   moment_ratio: -1.0e-10
+    rotor_1:
+      pose:
+        pos: [0.106065, 0.106065, 0.0]
+        rpy: [0.0, 0.0, 0.0]
+      thrust_radio: 1.0
+      moment_ratio: 0.0245
+    rotor_2:
+      pose:
+        pos: [-0.106065, -0.106065, 0.0]
+        rpy: [0.0, 0.0, 0.0]
+      thrust_radio: 1.0
+      moment_ratio: 0.0245
+    rotor_3:
+      pose:
+        pos: [-0.106065, 0.106065, 0.0]
+        rpy: [0.0, 0.0, 0.0]
+      thrust_radio: 1.0
+      moment_ratio: -0.0245
+    rotor_4:
+      pose:
+        pos: [0.106065, -0.106065, 0.0]
+        rpy: [0.0, 0.0, 0.0]
+      thrust_radio: 1.0
+      moment_ratio: -0.0245
   collision_model: "box"
-  urdf_path: "src/payload_sim/config/model/quadrotor.urdf"
+  urdf_path: "/home/stark/impactor_ws/src/IMPACTOR/impactor/impact_sim/config/model/quadrotor.urdf"
   rope_base:
     pos: [0.0, 0.0, -0.125]
     rpy: [0.0, 0.0, 0.0]
@@ -91,7 +91,7 @@ env:
   duration: 100.0              # Simulation duration
   quadrotor:
     target_pos: [0.0, 2.0, 1.0]
-  use_remote_control: True
+  use_remote_control: False
   target_realtime_rate: 1.0       # Rate to run the simulation. 0.0 means as fast as possible. 1.0 to track real time. 2 to run twice as fast as real time. 0.5 for half speed, etc.
   publish_every_time_step: True
   penetration_allowance: 0.01

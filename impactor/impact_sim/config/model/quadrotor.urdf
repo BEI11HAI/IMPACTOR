@@ -19,7 +19,7 @@
       <origin rpy="-1.570796 0 0" xyz="-0.2 -0.2 0"/>
       <geometry>
         <!-- <mesh filename="package://drake/examples/quadrotor/skydio_2_1000_poly.obj" scale=".00254"/> -->
-        <mesh filename="package://drake/examples/quadrotor/drone250.obj" scale="0.001"/>
+        <mesh filename="/home/stark/impactor_ws/src/IMPACTOR/impactor/impact_sim/config/model/drone250.obj" scale="0.001"/>
       </geometry>
       <material name="lightskyblue">
         <color rgba="0.25 0.41 0.88 1"/>
