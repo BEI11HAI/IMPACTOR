@@ -1,0 +1,21 @@
+0. catkin_make
+
+    - 安装各种缺少的依赖，如empy, mavros...
+
+    - 自定义msg编译时会报错，需要catkin_make两次，成功编译的一次也加了source devel/setup.bash，未知是否关键
+
+
+1. impact_plan
+    
+    - roslaunch impact_plan impactor.launch
+
+
+2. impact_control
+    - 
+
+
+3. impact_sim
+    - 修改config，使用X型结构
+
+    - 修改urdf和config文件中路径
+

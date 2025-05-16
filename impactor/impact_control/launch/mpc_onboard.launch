@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
 
-    <node pkg="payload_mpc_controller" type="mpc_controller_node" name="mpc_controller_node" output="screen">
-      <rosparam command="load" file="$(find payload_mpc_controller)/config/mpc_onboard.yaml" />
-      <rosparam command="load" file="$(find payload_mpc_controller)/config/model.yaml" />
+    <!-- <node pkg="payload_mpc_controller" type="mpc_controller_node" name="mpc_controller_node" output="screen"> -->
+    <node pkg="impact_control" type="mpc_controller_node" name="mpc_controller_node" output="screen">
+      <!-- <rosparam command="load" file="$(find payload_mpc_controller)/config/mpc_onboard.yaml" /> -->
+      <!-- <rosparam command="load" file="$(find payload_mpc_controller)/config/model.yaml" /> -->
+      <rosparam command="load" file="$(find impact_control)/config/mpc_onboard.yaml" />
+      <rosparam command="load" file="$(find impact_control)/config/model.yaml" />
       
       <remap from="~odom" to="/ekf/ekf_odom"/>
       <remap from="~cable_info/data" to="/cable_imu/cable_info"/>

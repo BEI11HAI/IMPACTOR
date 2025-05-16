@@ -31,7 +31,7 @@
       <remap from="~payload_odom"                 to="$(arg payload_odometry_topic)"/>
       <remap from="/mavros/imu/data"              to="imu"/>
       <remap from="~payload_imu/data"             to="imu_payload"/>
-	  <remap from="~traj"                         to="planning/trajectory"/>
+	    <remap from="~traj"                         to="planning/trajectory"/>
       <remap from="/mavros/setpoint_raw/attitude" to="so3cmd"/>
       <remap from="~start_trigger"                to="/move_base_simple/goal"/>
       <remap from="~cmd_trigger"                  to="/hummingbird/goal"/>

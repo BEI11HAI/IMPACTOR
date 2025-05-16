@@ -8,7 +8,8 @@
         <rosparam file="$(find poly_planner)/config/poly_planner_params.yaml" command="load" />
     </node>
 
-    <node pkg="payload_mpc_controller" type="mpc_controller_node" name="mpc_controller_node" output="screen">
+    <!-- <node pkg="payload_mpc_controller" type="mpc_controller_node" name="mpc_controller_node" output="screen"> -->
+    <node pkg="impact_control" type="mpc_controller_node" name="mpc_controller_node" output="screen">
       <rosparam command="load" file="$(find payload_mpc_controller)/config/mpc.yaml" />
       <rosparam command="load" file="$(find payload_mpc_controller)/config/model.yaml" />
       
