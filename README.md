@@ -1,3 +1,23 @@
+# My Adaptation
+## Notes
+
+- run with rviz
+  - `roslaunch impact_plan impactor.launch`
+
+- impactor.launch: 启动rviz + 运行env_generator节点 + （默认）启动payload_plan.launch
+- payload_plan.launch: 
+  - 启动impact_plan_node，包含src/manager/global_plan.cpp, planner_manager.cpp, plan_node.cpp
+  - 启动trajectory_server，src/manager/traj_server.cpp
+  - 启动simulator.xml
+- simulator.xml: 
+  - 启动so3_quadrotor仿真无人机
+  - 启动odom_visualization在rviz中绘制可视化轨迹
+  - 启动pcl_render_node，模拟机载深度摄像头
+  - （启动mpc_controller_node，使用mpc控制器）
+
+
+
+
 # IMPACTOR: <u>IMP</u>act-<u>A</u>ware Planning and <u>C</u>on<u>T</u>r<u>O</u>l for Aerial <u>R</u>obots with Suspended Payloads
 ## News
 - 26 Mar., 2024: Released the impact-aware planning algorithm and the early access version paper.
