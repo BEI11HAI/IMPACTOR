@@ -1,4 +1,14 @@
 # My Adaptation
+under ~/impactor_ws
+
+所需修改内容：
+- 计算时间
+- 修改路径点，过点半径
+  - 路径点可由payload_manager.yaml中waypoints定义修改
+  - 门半径、可飞行区域由scenario1.yaml定义
+- 修改飞机、负载质量，绳长
+- 无人机全状态
+
 ## Notes
 
 - run with rviz
@@ -15,6 +25,35 @@
   - 启动pcl_render_node，模拟机载深度摄像头
   - （启动mpc_controller_node，使用mpc控制器）
 
+### 规划部分
+- impact_plan_node
+  - plan_node.cpp （启动器）: 初始化impact_plan_node，创建 GlobalPlanner 类的实例 globalplanner
+  - global_plan.cpp （任务管理器）：
+    - 管理状态: 监听 /move_base_simple/goal 话题作为启动规划的触发信号，等待地图数据
+    - 调用规划器: 在 execPlanCallback 中，触发信号、地图就绪后调用 plan_manager_ 对象的 optimalTraj，并传递起点和终点坐标
+    - 发布结果: 如果 plan_manager_ 成功生成轨迹，将轨迹打包成 ROS 消息并发布
+  - plan_manager.cpp （搜索+规划集成地）
+    - 前端路径搜索 (A 算法)：findPath()
+    - 后端轨迹优化：alm_opt::HybridOPT
+  
+- trajectory_server ：trajectory_server.cpp （连接规划和控制）
+  - 接收轨迹：从规划器 (impact_plan_node) 接收一条计算好的轨迹
+  - 通过 startCallback 函数监听 /planning/start 话题。一旦收到开始信号，记录全局开始时间 global_info_.global_start_time_
+  - 周期性生成指令 (核心): ros::Timer 以 100Hz 的频率触发 cmdCallback 函数
+  - 发布指令: 将生成的指令通过 position_cmd 话题发布出去，供无人机的底层飞行控制器（例如 MPC 控制器或 PX4）订阅和执行
+
+### 控制部分
+- mpc_controller_node
+  - mpc_controller_node.cpp (节点入口/驱动): 初始化 + ROS通信设置 + 主循环
+  
+  - mpc_input.cpp: 处理和封装所有从ROS话题接收到的输入数据，将ROS消息转换为 MPC 所需的格式
+
+  - mpc_fsm.cpp (有限状态机/大脑): MPCFSM 类，状态管理（手动、悬停、轨迹跟踪）
+
+  - mpc_controller.cpp (核心控制器/问题构建者): MpcController 类，将收到的待跟踪轨迹转化为的MPC标准形式
+
+  - mpc_wrapper.cpp (求解器接口/数学计算引擎): MpcWrapper 类，调用底层数值优化库（ACADO）
+  
 
 
 
