@@ -6,10 +6,22 @@ under ~/impactor_ws
 - 修改路径点，过点半径
   - 路径点可由payload_manager.yaml中waypoints定义修改
   - 门半径、可飞行区域由scenario1.yaml定义
+  - 无过点半径概念，生成的是时序轨迹
 - 修改飞机、负载质量，绳长
-- 无人机全状态
+  - payload_manager.yaml:改无人机物理配置
+- 修改输入上下限
+  - 规划阶段：payload_opt.yaml
+  - 控制阶段：mpc_onboard.yaml, mpc_sim.yaml, mpc.yaml
+- 无人机、负载全状态
+  - /visualizer下子topic中可读
 
 ## Notes
+- 问题记录
+  - `(impactor) stark@Winterfell:~/impactor_ws$ rostopic echo /planning/trajectory_info
+  ERROR: Cannot load message class for [impact_plan/PolynomialTraj]. Are your messages built?
+`
+    - 自定义消息类型需`source devel/setup.bash`
+
 
 - run with rviz
   - `roslaunch impact_plan impactor.launch`

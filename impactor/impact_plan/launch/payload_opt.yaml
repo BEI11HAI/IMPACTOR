@@ -4,9 +4,11 @@ alm:
   max_jer_quad: 40.0
   max_acc_load: 20.0
   max_theta: 1.2
-  max_thrust: 50.0
-  min_thrust: 4.0
-  max_omg: 4.0
+  # max_thrust: 50.0
+  max_thrust: 10.3
+  min_thrust: 0.0
+  # max_omg: 4.0
+  max_omg: 10.0
   max_tension: 50.0
   min_tension: 0.0
   min_distance: 0.2
