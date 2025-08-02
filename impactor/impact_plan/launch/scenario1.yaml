@@ -3,12 +3,12 @@ obstacle:
   # Gate parameters
   ring_num: 1
   ring_0:
-    x: 4.25
-    y: -0.04
-    z: 1.21
+    x: 0
+    y: -0.9
+    z: 1.0
     radius_x: 0.3
     radius_y: 0.3
-    theta: 0.0
+    theta: 4.71
   # Virtual wall parameters
   wall_num: 10
   wall_0:

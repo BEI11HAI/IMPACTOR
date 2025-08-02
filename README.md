@@ -3,7 +3,7 @@ under ~/impactor_ws
 
 所需修改内容：
 - 计算时间
-- 修改路径点，过点半径
+- 修改路径点，过点半径rrR
   - 路径点可由payload_manager.yaml中waypoints定义修改
   - 门半径、可飞行区域由scenario1.yaml定义
   - 无过点半径概念，生成的是时序轨迹

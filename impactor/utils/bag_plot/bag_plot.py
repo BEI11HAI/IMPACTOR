@@ -419,7 +419,7 @@ def plot_quadrotor_trajectory(bag_file_path, quad_topic="/visualizer/quadPos", l
 def main():
     """主函数"""
     # bag文件路径
-    bag_file_path = "/bag_plot/bag/initial.bag"
+    bag_file_path = "bag/track7_270.bag"
     
     # 如果文件路径是相对路径，尝试在当前目录和上级目录中查找
     if not os.path.exists(bag_file_path):
